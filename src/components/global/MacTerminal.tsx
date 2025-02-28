@@ -13,11 +13,11 @@ type ChatHistory = {
 
 // Customize these placeholder messages for the input field
 const PLACEHOLDER_MESSAGES = [
-  'Type your question...',
-  'How old are you?',
-  'What are your skills?',
-  'Where are you located?',
-  'What projects have you worked on?',
+  'Escribeme tus preguntas...',
+  '¿Cuantos años tienes?',
+  '¿Cuales son tus skills?',
+  '¿Donde estas ubicado?',
+  '¿Que proyectos has realizado?',
 ];
 
 export default function MacTerminal() {
@@ -63,60 +63,59 @@ export default function MacTerminal() {
   }, [placeholder, isDeleting, currentPlaceholderIndex]);
 
   // Customize this welcome message with your information
-  const welcomeMessage = `Welcome to My Portfolio
+  const welcomeMessage = `¡ Binevenido a mi portfolio 😊 !
 
-Name: John Doe
-Role: Full Stack Developer
-Location: Austin, TX
+🧑‍🦱 Nombre: Pepe Cabeza
+🧙‍♂️ Role: AI Solutions y Marketing Digital
+🗺️ Localización: Málaga, España
 
-Contact: john@johndoe.com
-GitHub: github.com/johndoe
+📨 Contacto: info@pepecz.es
+🛟 Instagram: github.com/pepecz
 
-Ask me anything!
+¡Pide lo que necesites!
 `;
 
   const currentDate = new Date();
-  const formattedDate = currentDate.toLocaleDateString('en-US', {
+  const formattedDate = currentDate.toLocaleDateString('es-ES', {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
   });
 
   // Customize the system prompt with your personal information
-  const systemPrompt = `IMPORTANT: You ARE John Doe himself. You must always speak in first-person ("I", "my", "me"). Never refer to "John" in third-person.
+  const systemPrompt = `IMPORTANT: You ARE Pepe Cabeza himself. You must always speak in first-person ("I", "my", "me"). Never refer to "Pepe" in third-person.
 CURRENT DATE: ${formattedDate} - Always use this exact date when discussing the current date/year.
 
 Example responses:
-Q: "Where do you live?"
-A: "I live in Austin, TX"
+Q: "¿Donde vives?"
+A: "Vivo en Málaga, España"
 
-Q: "What's your background?"
-A: "I'm a Full Stack Developer with experience in React, Next.js, and Node.js"
+Q: "¿Cuales son tus skills?"
+A: "Soy un desarrollador de soluciones de IA y marketing digital"
 
-Q: "How old are you?"
-A: "I'm 34 years old"
+Q: "¿Cuantos años tienes?"
+A: "Tengo 20 años"
 
 Core details about me:
-- I'm 34 years old
-- I live in Austin, TX
-- I'm a Full Stack Developer
-- My email is john@johndoe.com
-- I was born in 1991
-- I was born in Austin, TX
+- Tengo 20 años
+- Vivo en Málaga, España
+- Soy un desarrollador de soluciones de IA y marketing digital
+- Mi email es info@pepecz.es
+- Nací en 2005
+- Nací en Málaga, España
 
 My technical expertise:
-- Full Stack Development
-- React, Express, Node, Astro, JavaScript, TypeScript
-- Node.js/Express
+- Desarrollo web
+- Agentes de Inteligencia Artificial, Chatbots, call agents, branding, etc.
 
 Response rules:
 1. ALWAYS use first-person (I, me, my)
-2. Never say "John" or refer to myself in third-person
+2. Never say "Pepe" or refer to myself in third-person
 3. Keep responses concise and professional
 4. Use markdown formatting when appropriate
 5. Maintain a friendly, conversational tone
 
-If a question is unrelated to my work or portfolio, say: "That's outside my area of expertise. Feel free to email me at john@johndoe.com and we can discuss further!"`;
+If a question is unrelated to my work or portfolio, say: "Eso no está en mi área de expertise. Si tienes alguna pregunta, puedes escribirme a info@pepecz.es y podemos discutirlo!"`;
 
   useEffect(() => {
     setChatHistory((prev) => ({
@@ -164,7 +163,7 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
         }),
       });
 
-      if (!response.ok) throw new Error('Failed to get response');
+      if (!response.ok) throw new Error('Error al obtener la respuesta');
 
       const data = await response.json();
 
@@ -183,7 +182,7 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
           {
             role: 'assistant',
             content:
-              "I'm having trouble processing that. Please email me at john@johndoe.com",
+              "Estoy teniendo problemas para procesar eso. Por favor, escríbeme a info@pepecz.es",
           },
         ],
       }));
@@ -200,7 +199,7 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
         <div className='w-3 h-3 rounded-full bg-green-500'></div>
         <span className='text-sm text-gray-300 flex-grow text-center font-semibold flex items-center justify-center gap-2'>
           <FaRegFolderClosed size={14} className='text-gray-300' />
-          johndoe.com ⸺ zsh
+          pepecz.es ⸺ zsh
         </span>
       </div>
       <div className='p-4 text-gray-200 font-mono text-xs h-[calc(400px-1.5rem)] flex flex-col'>
@@ -223,7 +222,7 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
         <form onSubmit={handleSubmit} className='mt-2'>
           <div className='flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-2'>
             {/* Customize the terminal title with your domain */}
-            <span className='whitespace-nowrap'>john@johndoe.com root %</span>
+            <span className='whitespace-nowrap'>info@pepecz.es root %</span>
             <input
               type='text'
               value={chatHistory.input}

@@ -3,11 +3,11 @@ import { IoIosMail, IoIosCall } from 'react-icons/io';
 
 export default function MobileDock() {
   const handleEmailClick = () => {
-    window.location.href = 'mailto:john@johndoe.com';
+    window.location.href = 'mailto:info@pepecz.es';
   };
 
   const handleGithubClick = () => {
-    window.open('https://github.com/johndoe', '_blank');
+    window.open('https://github.com/pepecz', '_blank');
   };
 
   const handleSpotifyClick = () => {

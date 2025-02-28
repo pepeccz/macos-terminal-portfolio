@@ -10,7 +10,7 @@ export const POST: APIRoute = async ({ request }) => {
     const body = await request.json();
 
     const completion = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4o-mini',
       messages: body.messages,
       temperature: 0.7,
       max_tokens: 500,
@@ -30,7 +30,7 @@ export const POST: APIRoute = async ({ request }) => {
   } catch (error) {
     return new Response(
       JSON.stringify({
-        error: 'Failed to generate response',
+        error: 'Error al generar la respuesta',
       }),
       {
         status: 500,

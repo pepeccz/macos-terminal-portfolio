@@ -1,30 +1,30 @@
 import { useState } from 'react';
-import { BsGithub, BsSpotify, BsTerminal } from 'react-icons/bs';
+import { BsGithub, BsTerminal, BsWhatsapp, BsInstagram } from 'react-icons/bs';
 import { IoIosMail } from 'react-icons/io';
-import { VscVscode } from 'react-icons/vsc';
+// import { VscVscode } from 'react-icons/vsc';
 import { RiTerminalFill } from 'react-icons/ri';
 
 export default function DesktopDock() {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:john@johndoe.com';
+    window.location.href = 'mailto:info@pepecz.es';
   };
 
   const handleGithubClick = () => {
-    window.open('https://github.com/johndoe', '_blank');
+    window.open('https://github.com/pepeccz', '_blank');
   };
 
   const handleCalendarClick = () => {
     window.open('https://calendly.com/', '_blank');
   };
 
-  const handleSpotifyClick = () => {
-    window.open('https://open.spotify.com', '_blank');
+  const handleWhatssAppClick = () => {
+    window.open('https://wa.me/+34623226544', '_blank');
   };
 
-  const handleVSCodeClick = () => {
-    window.location.href = 'vscode:/';
+  const handleInstagramClick = () => {
+    window.open('https://instagram.com/pepeccz', '_blank');
   };
 
   const Tooltip = ({ text }: { text: string }) => (
@@ -40,17 +40,17 @@ export default function DesktopDock() {
     <div className='fixed bottom-0 left-1/2 -translate-x-1/2 hidden md:block z-50'>
       <div className='relative mb-2 p-3 bg-gradient-to-t from-gray-700 to-gray-800 backdrop-blur-2xl rounded-2xl'>
         <div className='flex items-end space-x-4'>
-          {/* VSCode */}
+          {/* Instagram */}
           <button
-            onClick={handleVSCodeClick}
-            onMouseEnter={() => setHoveredIcon('vscode')}
+            onClick={handleInstagramClick}
+            onMouseEnter={() => setHoveredIcon('instagram')}
             onMouseLeave={() => setHoveredIcon(null)}
             className='relative'
           >
-            <div className='w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg'>
-              <VscVscode size={45} className='text-blue-500' />
+            <div className='w-14 h-14 bg-gradient-to-t from-pink-500 to-pink-400 rounded-xl flex items-center justify-center shadow-lg'>
+              <BsInstagram size={45} className='text-white' />
             </div>
-            {hoveredIcon === 'vscode' && <Tooltip text='Launch VS Code' />}
+            {hoveredIcon === 'instagram' && <Tooltip text='Mi Instagram' />}
           </button>
 
           {/* Email */}
@@ -76,7 +76,7 @@ export default function DesktopDock() {
             <div className='w-14 h-14  bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg'>
               <BsGithub size={45} className='text-gray-100' />
             </div>
-            {hoveredIcon === 'github' && <Tooltip text='My GitHub' />}
+            {hoveredIcon === 'github' && <Tooltip text='Mi GitHub' />}
           </button>
 
           {/* Calendar */}
@@ -91,7 +91,7 @@ export default function DesktopDock() {
 
               <div className='absolute top-0 inset-x-0 h-5 bg-red-500 flex items-center justify-center rounded-t-xl'>
                 <span className='text-xs font-semibold text-white uppercase'>
-                  {new Date().toLocaleString('en-US', { month: 'short' })}
+                  {new Date().toLocaleString('es-ES', { month: 'short' })}
                 </span>
               </div>
 
@@ -101,20 +101,20 @@ export default function DesktopDock() {
                 </span>
               </div>
             </div>
-            {hoveredIcon === 'calendar' && <Tooltip text='Book a Call' />}
+            {hoveredIcon === 'calendar' && <Tooltip text='Agenda una llamada' />}
           </button>
 
           {/* Spotify */}
           <button
-            onClick={handleSpotifyClick}
-            onMouseEnter={() => setHoveredIcon('spotify')}
+            onClick={handleWhatssAppClick}
+            onMouseEnter={() => setHoveredIcon('whatssap')}
             onMouseLeave={() => setHoveredIcon(null)}
             className='relative'
           >
-            <div className='w-14 h-14 bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg'>
-              <BsSpotify size={45} className='text-[#1ED760]' />
+            <div className='w-14 h-14 bg-gradient-to-t from-transparent to-transparent/60 rounded-xl flex items-center justify-center shadow-lg'>
+              <BsWhatsapp size={45} className='text-[#1ED760]' />
             </div>
-            {hoveredIcon === 'spotify' && <Tooltip text='My Dev Playlist' />}
+            {hoveredIcon === 'whatssap' && <Tooltip text='Envíame un mensaje' />}
           </button>
 
           {/* Divider */}

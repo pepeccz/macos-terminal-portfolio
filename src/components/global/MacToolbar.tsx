@@ -66,13 +66,13 @@ export default function MacToolbar() {
       <div className='sticky top-0 z-50 hidden md:flex bg-black/20 backdrop-blur-md text-white h-6 px-4 items-center justify-between text-sm'>
         <div className='flex items-center space-x-4'>
           <FaApple size={16} />
-          <span className='font-semibold cursor-default'>John Doe</span>
-          <span className='cursor-default'>File</span>
-          <span className='cursor-default'>Edit</span>
-          <span className='cursor-default'>View</span>
-          <span className='cursor-default'>Go</span>
-          <span className='cursor-default'>Window</span>
-          <span className='cursor-default'>Help</span>
+          <span className='font-semibold cursor-default'>Pepe Cabeza</span>
+          <span className='cursor-default'>Archivo</span>
+          <span className='cursor-default'>Editar</span>
+          <span className='cursor-default'>Vista</span>
+          <span className='cursor-default'>Ir</span>
+          <span className='cursor-default'>Ventana</span>
+          <span className='cursor-default'>Ayuda</span>
         </div>
         <div className='flex items-center space-x-4'>
           <VscVscode
